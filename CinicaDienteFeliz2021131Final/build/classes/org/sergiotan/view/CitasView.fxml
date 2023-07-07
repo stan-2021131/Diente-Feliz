@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="395.0" prefWidth="941.0" style="-fx-background-radius: 5;" stylesheets="@../resource/ClinicaDienteFelizCSS.css" xmlns="http://javafx.com/javafx/17" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.sergiotan.controller.CitasController">
+   <children>
+      <Pane layoutX="833.0" layoutY="302.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-radius: 100; -fx-background-color: #0c4da5;">
+         <children>
+            <ImageView fitHeight="42.0" fitWidth="46.0" layoutX="56.0" layoutY="14.0" opacity="0.42" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/65630.png" />
+               </image>
+            </ImageView>
+            <Text fill="#0000006c" layoutX="56.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Diente feliz" textAlignment="CENTER" wrappingWidth="42.0">
+               <font>
+                  <Font name="Serif Italic" size="11.0" />
+               </font>
+            </Text>
+            <ImageView fitHeight="52.0" fitWidth="52.0" layoutX="-19.0" layoutY="17.0" onMouseClicked="#menuPrincipal" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/4115235-exit-logout-sign-out_114030.png" />
+               </image>
+            </ImageView>
+         </children></Pane>
+      <Pane layoutX="-270.0" layoutY="-63.0" prefHeight="495.0" prefWidth="478.0" style="-fx-background-radius: 2000; -fx-background-color: #639feb;">
+         <children>
+            <ImageView fitHeight="101.0" fitWidth="102.0" layoutX="272.0" layoutY="349.0" opacity="0.41" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../image/1707477.png" />
+               </image>
+            </ImageView>
+            <VBox layoutX="272.0" layoutY="178.0" prefHeight="200.0" prefWidth="151.0">
+               <children>
+                  <Button fx:id="btnNuevo" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#nuevo" prefHeight="26.0" prefWidth="160.0" styleClass="boton1" stylesheets="@../resource/ClinicaDienteFelizCSS.css" text="Nuevo">
+                     <font>
+                        <Font name="Serif Bold" size="18.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fx:id="imgNuevo" fitHeight="25.0" fitWidth="30.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../image/new_add_user_16734.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
+                  <Button fx:id="btnEliminar" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#eliminar" prefHeight="25.0" prefWidth="158.0" styleClass="boton1" stylesheets="@../resource/ClinicaDienteFelizCSS.css" text="Eliminar">
+                     <font>
+                        <Font name="Serif Bold" size="18.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fx:id="imgEliminar" fitHeight="26.0" fitWidth="42.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../image/delete_remove_user_16733.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
+                  <Button fx:id="btnEditar" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#editar" prefHeight="25.0" prefWidth="166.0" styleClass="boton1" stylesheets="@../resource/ClinicaDienteFelizCSS.css" text="Editar">
+                     <font>
+                        <Font name="Serif Bold" size="18.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fx:id="imgEditar" fitHeight="26.0" fitWidth="28.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../image/editnote_edi_9512.png" />
+                           </image>
+                        </ImageView>
+                     </graphic>
+                  </Button>
+                  <Button fx:id="btnReporte" alignment="TOP_LEFT" mnemonicParsing="false" onAction="#reporte" prefHeight="25.0" prefWidth="158.0" styleClass="boton1" stylesheets="@../resource/ClinicaDienteFelizCSS.css" text="Reporte">
+                     <font>
+                        <Font name="Serif Bold" size="18.0" />
+                     </font>
+                     <graphic>
+                        <ImageView fx:id="imgReporte" fitHeight="24.0" fitWidth="27.0" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../image/document_note_text_file_icon_181575.png" />
+                           </image>
+                        </ImageView>
+                     </graphic></Button>
+               </children>
+            </VBox>
+            <Pane layoutX="179.0" layoutY="-36.0" prefHeight="200.0" prefWidth="200.0" style="-fx-background-radius: 100; -fx-background-color: #f4e31e;">
+               <children>
+                  <Text fill="#0c4da5" layoutX="83.0" layoutY="169.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Citas" textAlignment="CENTER" wrappingWidth="102.34765625">
+                     <font>
+                        <Font name="Serif Bold" size="19.0" />
+                     </font>
+                  </Text>
+                  <ImageView fitHeight="52.0" fitWidth="52.0" layoutX="100.0" layoutY="100.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@../image/Patient_Male_icon-icons.com_75053.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </Pane>
+         </children>
+      </Pane>
+      <GridPane fx:id="grpFechas" layoutX="223.0" layoutY="210.0" prefHeight="92.0" prefWidth="697.0">
+        <columnConstraints>
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="226.0" minWidth="101.0" prefWidth="101.0" />
+          <ColumnConstraints hgrow="SOMETIMES" maxWidth="400.0" minWidth="80.0" prefWidth="140.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="381.0" minWidth="120.0" prefWidth="381.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="381.0" minWidth="100.0" prefWidth="381.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="381.0" minWidth="73.0" prefWidth="381.0" />
+            <ColumnConstraints hgrow="SOMETIMES" maxWidth="381.0" minWidth="10.0" prefWidth="381.0" />
+        </columnConstraints>
+        <rowConstraints>
+          <RowConstraints maxHeight="27.0" minHeight="0.0" prefHeight="0.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="60.0" minHeight="10.0" prefHeight="36.0" vgrow="SOMETIMES" />
+            <RowConstraints maxHeight="60.0" minHeight="10.0" prefHeight="31.0" vgrow="SOMETIMES" />
+          <RowConstraints maxHeight="60.0" minHeight="10.0" prefHeight="31.0" vgrow="SOMETIMES" />
+        </rowConstraints>
+         <children>
+            <TextField fx:id="txtCodigoCita" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Serif Regular" size="15.0" />
+               </font></TextField>
+            <TextField fx:id="txtDescrip" editable="false" GridPane.columnIndex="3" GridPane.rowIndex="2">
+               <font>
+                  <Font name="Serif Regular" size="15.0" />
+               </font>
+            </TextField>
+            <TextField fx:id="txtHoraCita" editable="false" GridPane.columnIndex="5" GridPane.rowIndex="1">
+               <font>
+                  <Font name="Serif Regular" size="15.0" />
+               </font></TextField>
+            <TextField fx:id="txtTratamiento" editable="false" GridPane.columnIndex="1" GridPane.rowIndex="2">
+               <font>
+                  <Font name="Serif Regular" size="15.0" />
+               </font></TextField>
+            <Label prefHeight="25.0" prefWidth="95.0" text="Código Cita" textAlignment="CENTER" GridPane.rowIndex="1">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label prefHeight="25.0" prefWidth="113.0" text="Fecha Cita" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="1">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label prefHeight="25.0" prefWidth="113.0" text="Hora Cita" textAlignment="CENTER" GridPane.columnIndex="4" GridPane.rowIndex="1">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label prefHeight="25.0" prefWidth="113.0" text="Tratamiento" textAlignment="CENTER" GridPane.rowIndex="2">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label prefHeight="25.0" prefWidth="123.0" text="Descripción" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="2">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label prefHeight="25.0" prefWidth="123.0" text="Código Paciente" textAlignment="CENTER" GridPane.columnIndex="4" GridPane.rowIndex="2">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <Label prefHeight="25.0" prefWidth="123.0" text="Número Colegiado" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.rowIndex="3">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <ComboBox fx:id="cmbCodPaciente" disable="true" prefWidth="150.0" GridPane.columnIndex="5" GridPane.rowIndex="2" />
+            <ComboBox fx:id="cmbNumColegiado" disable="true" prefWidth="150.0" GridPane.columnIndex="3" GridPane.rowIndex="3" />
+         </children>
+      </GridPane>
+      <TableView fx:id="tblCitas" layoutX="223.0" layoutY="14.0" onKeyReleased="#seleccionarElementos" onMouseClicked="#seleccionarElementos" prefHeight="200.0" prefWidth="703.0">
+        <columns>
+          <TableColumn fx:id="colCodigoCita" minWidth="68.0" prefWidth="70.0" text="Cod. Cita" />
+          <TableColumn fx:id="colFechaCita" minWidth="66.0" prefWidth="90.0" text="Fecha Cita" />
+            <TableColumn fx:id="colHoraCita" minWidth="77.0" prefWidth="95.0" text="Hora Cita" />
+            <TableColumn fx:id="colTratamiento" minWidth="25.0" prefWidth="121.0" text="Tratamiento" />
+            <TableColumn fx:id="colDescrip" minWidth="83.5" prefWidth="140.0" text="Descripcion Actual" />
+            <TableColumn fx:id="colCodPaciente" minWidth="78.0" prefWidth="87.0" text="Cod. Paciente" />
+            <TableColumn fx:id="colNumColegiado" prefWidth="99.0" text="Num. Colegiado" />
+        </columns>
+      </TableView>
+   </children>
+</AnchorPane>

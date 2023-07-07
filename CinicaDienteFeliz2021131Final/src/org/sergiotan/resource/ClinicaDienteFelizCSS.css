@@ -1,0 +1,58 @@
+
+
+.boton1
+{
+    -fx-background-color: #5c9cec ;
+    -fx-background-radius: 70;
+    
+}
+.boton1:hover{
+    -fx-background-color: #4499e5;
+    
+}
+.boton1:pressed{
+    -fx-background-color: #e7ecf8;    
+    
+}
+.table-view .column-header,
+.table-view .column-header-background .filler {
+    -fx-cell-size : 20;
+
+    -fx-background-color:    #1866ae;
+    
+}
+.table-view .column-header .label{
+
+   -fx-text-fill: white;
+   -fx-font-weight: bold;
+   -fx-alignment: CENTER;
+}
+.table-view .cell{
+   -fx-cell-size: 30;
+  -fx-alignment: center-left;
+  -fx-text-fill: #000000;
+}
+
+.table-row-cell:selected {
+    -fx-background-color:  rgb(127, 172, 243);
+ }
+ .table-row-cell:selected .text {
+        -fx-fill : white ;
+ }
+ 
+ 
+ .menu-bar {
+    -fx-background-color: transparent ;
+    -fx-opacity: 0.8;
+    -fx-border-width: 2.0;
+
+}
+.menu-bar .label {
+    -fx-font-size: 14.0 pt;
+    -fx-font-family: "Serif";
+    -fx-text-fill: black;
+    -fx-font-weight: bold; 
+    -fx-padding: 10.0px;
+
+}
+

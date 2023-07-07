@@ -1,0 +1,341 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReporteDoctor" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="b37f7f3b-3bc1-4a93-9526-c2ec9bcc9f2c">
+	<property name="ireport.zoom" value="1.0000000000000004"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="NUM_COLEGIADO" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="ICONO" class="java.lang.String"/>
+	<parameter name="FONDO" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[Select * from Citas as c
+Inner Join Doctores as d on c.numeroColegiado = d.numeroColegiado
+Inner Join Pacientes as p on c.codigoPaciente = p.codigoPaciente
+Inner Join Recetas as r on d.numeroColegiado = r.numeroColegiado
+Inner Join DetalleReceta as dr on r.codigoReceta = dr.codigoReceta
+Inner Join Medicamentos as m on dr.codigoMedicamento = m.codigoMedicamento
+Inner Join Especialidades as e on d.codigoEspecialidad = e.codigoEspecialidad
+where c.numeroColegiado = $P{NUM_COLEGIADO}
+;]]>
+	</queryString>
+	<field name="codigoCita" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fechaCita" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="horaCita" class="java.sql.Time">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="tratamiento" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="descripConActual" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="codigoPaciente" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="numeroColegiado" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nombresDoctor" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="apellidosDoctor" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="telefonoCOntacto" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="codigoEspecialidad" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nombrePaciente" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="apellidosPaciente" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="sexo" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fechaNacimiento" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="direccionPaciente" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="telefonoPersonal" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fechaPrimeraVisita" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="codigoReceta" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fechaRecete" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="codigoDetalleReceta" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="dosis" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="codigoMedicamento" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nombreMedicamento" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="descripcion" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band height="555" splitType="Stretch">
+			<image>
+				<reportElement x="0" y="0" width="802" height="555" uuid="0900cc47-4f0d-4b53-b163-0fdb5f7ac296"/>
+				<imageExpression><![CDATA[$P{FONDO}]]></imageExpression>
+			</image>
+		</band>
+	</background>
+	<title>
+		<band height="80" splitType="Stretch">
+			<staticText>
+				<reportElement x="415" y="15" width="130" height="43" uuid="3ba438b2-d5fe-4a0e-a3bd-fa79324b5f63"/>
+				<textElement>
+					<font fontName="Serif" size="26" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Doctor]]></text>
+			</staticText>
+			<image>
+				<reportElement x="184" y="5" width="72" height="53" uuid="d36da076-df72-475b-a8bc-24de9751a34d"/>
+				<imageExpression><![CDATA[$P{ICONO}]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<textField>
+				<reportElement x="27" y="2" width="100" height="20" uuid="ef340697-9e59-4bea-8f74-4ce67bbf1b3a"/>
+				<textElement>
+					<font fontName="Serif" size="12" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{numeroColegiado}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="127" y="22" width="178" height="20" uuid="9e47dbe3-4a25-467b-bd96-4984b415bb5b"/>
+				<textElement>
+					<font fontName="Serif" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombresDoctor}+' '+$F{apellidosDoctor}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="514" y="2" width="100" height="20" uuid="d034c6ad-bc37-4359-be5a-a442481ac0ef"/>
+				<textElement>
+					<font fontName="Serif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Especialidad]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="614" y="22" width="100" height="20" uuid="8031c41b-3dca-42c2-84bc-73257cc5460b"/>
+				<textElement>
+					<font fontName="Serif" size="12"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{descripcion}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="12" y="20" width="72" height="20" uuid="cc68a3c0-f605-4313-b8e9-9af513d40835"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{codigoReceta}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="12" y="0" width="72" height="20" uuid="e0c25e3b-8e0d-4579-9dad-b3f2edcbc4bc"/>
+				<textElement>
+					<font fontName="Serif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[No. Receta]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="84" y="20" width="100" height="20" uuid="1ca90f6d-27be-41b3-87ec-a28105c493eb"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fechaRecete}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="84" y="0" width="100" height="20" uuid="d8bc16e9-15b1-442e-ae08-504c912a57ee"/>
+				<textElement>
+					<font fontName="Serif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha de la Receta]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="12" y="52" width="72" height="20" uuid="f2a2ef80-ff50-48a6-a49d-0a3708bcef2c"/>
+				<textElement>
+					<font fontName="Serif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Medicamento]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="227" y="20" width="100" height="20" uuid="aea62276-4a1c-41bb-9636-878d6b8c1277"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{codigoPaciente}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="227" y="0" width="100" height="20" uuid="24ad6102-2936-4491-8f79-06e7eb1ee24d"/>
+				<textElement>
+					<font fontName="Serif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[No. Paciente]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="227" y="60" width="100" height="20" uuid="f46a3929-b1c4-402d-967f-274791b54f88"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombrePaciente}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="227" y="40" width="100" height="20" uuid="eead65dc-4581-4a9f-8a7a-847990f3f776"/>
+				<textElement>
+					<font fontName="Serif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Nombre]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="327" y="60" width="100" height="20" uuid="83a72d33-1044-4834-aa98-b027f4760cc1"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{apellidosPaciente}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="327" y="40" width="100" height="20" uuid="c021e8d4-c194-4f2c-bd98-7be72a825c99"/>
+				<textElement>
+					<font fontName="Serif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Apellidos]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="327" y="80" width="100" height="20" uuid="892bbe44-c0e5-4628-9f66-96b1d64771e9"/>
+				<textElement>
+					<font fontName="Serif" size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sexo}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="227" y="80" width="100" height="20" uuid="5cc3f456-95d9-4f41-bf52-ebee5fff85b5"/>
+				<textElement>
+					<font fontName="Serif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Sexo]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="84" y="72" width="100" height="20" uuid="b0521c76-393a-45fd-8164-70e26f04c796"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dosis}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="84" y="52" width="100" height="20" uuid="ec3c0f68-ea8d-499c-8c89-897a1ea0f8cf"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombreMedicamento}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="558" y="0" width="100" height="20" uuid="666a2df4-6ff6-42de-a485-3df4e803e3ab"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{codigoCita}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="458" y="0" width="100" height="20" uuid="ccab7fe6-d30d-4dba-ac76-a3e8f231f04c"/>
+				<textElement>
+					<font fontName="Serif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[No. de Cita]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="558" y="20" width="100" height="20" uuid="8a0b3897-7af7-4e19-9727-583255f0919e"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fechaCita}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="458" y="20" width="100" height="20" uuid="fe75c650-ffa1-4f0c-90ba-277ca221b47e"/>
+				<textElement>
+					<font fontName="Serif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="558" y="40" width="100" height="20" uuid="edfc679f-e4ea-4902-b92c-2032729d3bb8"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{horaCita}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="458" y="40" width="100" height="20" uuid="c6aa11d8-0ca8-4ba5-88b3-6ee9a50c82ff"/>
+				<textElement>
+					<font fontName="Serif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Hora]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="558" y="60" width="100" height="20" uuid="9fb2ef75-9d81-439d-911b-d8242d63bd0e"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{tratamiento}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="458" y="60" width="100" height="20" uuid="f94d071e-6a3d-4544-b20a-cee0b8065555"/>
+				<textElement>
+					<font fontName="Serif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Tratamiento]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="558" y="80" width="100" height="20" uuid="0d0c86da-d888-4822-816a-aea71279589c"/>
+				<textElement>
+					<font fontName="Serif"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{descripConActual}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="458" y="80" width="100" height="20" uuid="0a7a46d1-9af9-4bb7-9afd-8bf2aa8bad47"/>
+				<textElement>
+					<font fontName="Serif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Estado Actual]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="12" y="72" width="72" height="20" uuid="1f571f50-5f2f-4442-8771-d9bafe75c0e0"/>
+				<textElement>
+					<font fontName="Serif" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Dosis]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+</jasperReport>

@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="RecetaMedica" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="093b4bc2-7a7c-44bc-85fb-a5a88c80e055">
+	<property name="ireport.zoom" value="0.7513148009015781"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="COD_RECETA" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["C:\\Users\\mario\\Documents\\NetBeansProjects\\CinicaDienteFeliz2021131-2- copia\\src\\org\\sergiotan\\report\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="FONDO" class="java.lang.String"/>
+	<parameter name="ICONO" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[Select * from DetalleReceta DR
+Inner Join Recetas R on DR.codigoReceta = R.codigoReceta
+Inner Join Medicamentos M on DR.codigoMedicamento = M.codigoMedicamento
+where codigoDetalleReceta =$P{COD_RECETA};]]>
+	</queryString>
+	<field name="codigoDetalleReceta" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="dosis" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="codigoReceta" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="codigoMedicamento" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="fechaRecete" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="numeroColegiado" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="nombreMedicamento" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<background>
+		<band height="555" splitType="Stretch">
+			<image>
+				<reportElement x="0" y="0" width="802" height="555" uuid="f23aecf8-8980-46dc-a039-040fb564396b"/>
+				<imageExpression><![CDATA[$P{FONDO}]]></imageExpression>
+			</image>
+		</band>
+	</background>
+	<title>
+		<band height="79" splitType="Stretch">
+			<staticText>
+				<reportElement x="401" y="20" width="165" height="28" uuid="fea34b7c-b789-4d54-87e4-7a7ba40c6de5"/>
+				<textElement>
+					<font fontName="Serif" size="18" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Detalle Receta]]></text>
+			</staticText>
+			<image>
+				<reportElement x="247" y="0" width="77" height="67" uuid="041097d6-dcf2-4cf6-8dc8-182ef2658866"/>
+				<imageExpression><![CDATA[$P{ICONO}]]></imageExpression>
+			</image>
+		</band>
+	</title>
+	<columnHeader>
+		<band height="61" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="16" width="144" height="23" uuid="6c48224d-9915-4a52-a6eb-42e39d7240c1"/>
+				<textElement>
+					<font fontName="Serif" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Código Receta]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="329" y="16" width="144" height="23" uuid="4f343c01-55a5-45f9-80c2-13d4f0e1bf00"/>
+				<textElement>
+					<font fontName="Serif" size="16" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha Receta]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="495" y="16" width="144" height="23" uuid="97dcdbeb-d3ef-429b-8c68-ad2ce590436a"/>
+				<textElement>
+					<font fontName="Serif" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{fechaRecete}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="161" y="16" width="144" height="23" uuid="4d129bd5-58e4-436a-9e20-7702a51e4b0c"/>
+				<textElement>
+					<font fontName="Serif" size="14"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{codigoReceta}]]></textFieldExpression>
+			</textField>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="125" splitType="Stretch">
+			<textField>
+				<reportElement x="301" y="57" width="100" height="20" uuid="4b13e488-751f-41bc-ac3f-71d7ff7392e8"/>
+				<textElement>
+					<font fontName="Serif" size="14" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{nombreMedicamento}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="301" y="14" width="172" height="20" uuid="561a21da-34a7-4966-afa5-b4255f598354"/>
+				<textElement>
+					<font fontName="Serif" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Código Medicamento]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="140" y="57" width="100" height="20" uuid="cd3aac14-e603-4f38-ac77-160a07b50c21"/>
+				<textElement>
+					<font fontName="Serif" size="14" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dosis}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="140" y="14" width="100" height="20" uuid="ec9937d7-ab94-4ad7-b0e2-e2f4a61d04b5"/>
+				<textElement>
+					<font fontName="Serif" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Dosis]]></text>
+			</staticText>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="54" splitType="Stretch"/>
+	</pageFooter>
+</jasperReport>
